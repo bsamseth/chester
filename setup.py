@@ -12,9 +12,10 @@ setup(
     url="https://www.github.com/bsamseth/python-chess-engine-tester",
     packages=["chester"],
     long_description=open(os.path.join(os.path.dirname(__file__), "README.md")).read(),
+    long_description_content_type="text/markdown",
     install_requires=["python-chess>=0.25.1"],
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 2 - Pre-Alpha",
         "Environment :: Console",
         "Topic :: Utilities",
         "Intended Audience :: Developers",
