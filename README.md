@@ -5,14 +5,14 @@
 [![Lines of Code](https://tokei.rs/b1/github/bsamseth/python-chess-engine-tester)](https://github.com/Aaronepower/tokei).
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bsamseth/python-chess-engine-tester/blob/master/LICENSE)
 
-# Python Chess Engine Tester
+# Chester - Chess Engine Tester
 
-This package aims to provide a simple interface for running chess matches
+`chester` is a Python package that aims to provide a simple interface for running chess matches
 between computer chess programs (referred to as engines). It makes it easy to
 play 1v1 matches of any length, including running tournaments between a large
 set of engines.
 
-__Note__: This is not yet completed.
+__Note__: This is not yet complete.
 
 ## Alternatives
 

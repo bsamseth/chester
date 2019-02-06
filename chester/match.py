@@ -23,7 +23,7 @@ def play_match(engine1, engine2, time_control):
     ---------
     engine1, engine2: str
         Executable of the UCI engines to play. Engine1 will play white.
-    time_control: chesstester.timecontrol.TimeControl
+    time_control: chester.timecontrol.TimeControl
         A TimeControl instance describing the time control to use.
 
     Returns

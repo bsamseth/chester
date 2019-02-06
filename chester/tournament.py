@@ -11,7 +11,7 @@ def play_tournament(players, time_control, n_games=1):
     ---------
     players: list of str
         A list of executables of the UCI engines to play.
-    time_control: chesstester.timecontrol.TimeControl
+    time_control: chester.timecontrol.TimeControl
         A TimeControl instance describing the time control to use.
     n_games: int
         The number of times each match-up should be played.
