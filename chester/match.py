@@ -37,7 +37,7 @@ def play_match(engine1, engine2, time_control, fen=chess.STARTING_FEN):
 
     result = None
     board = chess.Board(fen)
-    time_control.start_new_game(side_to_move=board.turn)
+    time_control._start_new_game(side_to_move=board.turn)
     current_player = engine1 if board.turn == chess.WHITE else engine2
     while not board.is_game_over():
         output = current_player.play(
@@ -50,7 +50,7 @@ def play_match(engine1, engine2, time_control, fen=chess.STARTING_FEN):
             ),
         )
 
-        player_flagged = time_control.signal_move_made()
+        player_flagged = time_control._signal_move_made()
 
         if player_flagged:
             if _is_insufficient_material_for_time_win(not board.turn, board):
