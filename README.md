@@ -126,7 +126,7 @@ The most known alternative to `chester` is
 This can be a benfit for those that need it, but it is also its downside compared to `chester`. Due to its complexity, cutechess is much less portable, and can be quite cumbersome to set up on certain systems.
 
 `chester` on the other hand aims to be much more portable, and depends only on a compatible
-version of Python and the package `python-chess` which equally easy to install.
+version of Python and the package `python-chess` which automatically installs when you install using `pip`.
 
 
 It does _not_, however, have any intentions of becoming
