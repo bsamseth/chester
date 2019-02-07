@@ -3,13 +3,13 @@ from .match import play_match
 from .openingbook import play_from_opening_book
 
 
-def _get_match_id(p1, p2):
-    """Return a unique integer for each pair of p1 and p2.
+def _get_match_id(p1, p2, round_id):
+    """Return a unique integer for each pair of p1 and p2 for every value of round_id.
 
     Property:
-        _get_match_id(p1, p2) == _get_match_id(p2, p1) for all p1, p2
+        _get_match_id(p1, p2, r) == _get_match_id(p2, p1, r) for all p1, p2, r
     """
-    return hash("".join(sorted(str(p1) + str(p2))))
+    return hash("".join(sorted(str(p1) + str(p2) + str(round_id))))
 
 
 def play_tournament(
@@ -55,7 +55,7 @@ def play_tournament(
                     board = play_from_opening_book(
                         opening_book,
                         max_depth=opening_book_depth,
-                        random_seed=_get_match_id(white, black),
+                        random_seed=_get_match_id(white, black, round_count),
                     )
                 else:
                     board = play_from_opening_book(
@@ -64,6 +64,6 @@ def play_tournament(
             else:
                 board = chess.Board()
 
-            pgn = play_match(white, black, time_control, fen=board.fen)
+            pgn = play_match(white, black, time_control, fen=board.fen())
             pgn.headers["Round"] = round_count
             yield pgn
