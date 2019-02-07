@@ -16,7 +16,7 @@ def _is_insufficient_material_for_time_win(color, board):
     return board.is_insufficient_material()
 
 
-def play_match(engine1, engine2, time_control):
+def play_match(engine1, engine2, time_control, fen=chess.STARTING_FEN):
     """Play a match between the given engines with a given time control.
 
     Arguments
@@ -25,6 +25,8 @@ def play_match(engine1, engine2, time_control):
         Executable of the UCI engines to play. Engine1 will play white.
     time_control: chester.timecontrol.TimeControl
         A TimeControl instance describing the time control to use.
+    fen: str, optional
+        Starting position in FEN notation. Default is the standard opening position.
 
     Returns
     -------
@@ -33,11 +35,10 @@ def play_match(engine1, engine2, time_control):
     engine1 = chess.engine.SimpleEngine.popen_uci(engine1)
     engine2 = chess.engine.SimpleEngine.popen_uci(engine2)
 
-    current_player = engine1
-
     result = None
-    time_control.start_new_game()
-    board = chess.Board()
+    board = chess.Board(fen)
+    time_control.start_new_game(side_to_move=board.turn)
+    current_player = engine1 if board.turn == chess.WHITE else engine2
     while not board.is_game_over():
         output = current_player.play(
             board,
@@ -65,6 +66,9 @@ def play_match(engine1, engine2, time_control):
     pgn.headers["White"] = engine1.id.get("name")
     pgn.headers["Black"] = engine2.id.get("name")
     pgn.headers["Date"] = datetime.datetime.today().strftime("%Y-%m-%d")
+    if fen != chess.STARTING_FEN:
+        pgn.headers["FEN"] = fen
+
     if result is not None:
         pgn.headers["Result"] = result
 
