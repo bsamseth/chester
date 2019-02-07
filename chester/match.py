@@ -4,7 +4,7 @@ import chess.pgn
 import datetime
 
 
-def is_insufficient_material_for_time_win(color, board):
+def _is_insufficient_material_for_time_win(color, board):
     """Return true if color has any way of winning the game. NOTE: Not complete, see niklasf/python-chess/issues/362"""
     # Remove all of not colors pieces (except for king).
     # If the game now has insufficient material we'll call it a draw (exceptions exists).
@@ -52,7 +52,7 @@ def play_match(engine1, engine2, time_control):
         player_flagged = time_control.signal_move_made()
 
         if player_flagged:
-            if is_insufficient_material_for_time_win(not board.turn, board):
+            if _is_insufficient_material_for_time_win(not board.turn, board):
                 result = "1/2-1/2"
             else:
                 result = "0-1" if board.turn == chess.WHITE else "1-0"
