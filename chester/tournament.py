@@ -1,3 +1,4 @@
+import chess
 from itertools import permutations
 from .match import play_match
 from .openingbook import play_from_opening_book
