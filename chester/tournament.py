@@ -20,6 +20,7 @@ def play_tournament(
     opening_book=None,
     opening_book_depth=10,
     repeat=True,
+    player_options=dict(),
 ):
     """Play all possible matches between the given players.
 
@@ -44,6 +45,16 @@ def play_tournament(
         When using an opening book, setting this to True will ensure that
         each player plays both sides of the same opening vs the same opponent.
         Default value is True.
+    player_options: dict of dict, optional
+        A dictionary of option dictionaries corresponding to a player. The dict
+        may be empty, and should be indexable by the given string in `players`.
+        See `chester.match.play_match` for details on the format of each dictionary.
+
+        Example:
+
+        ``` python
+        player_options = {"stockfish": {"Contempt": 24, "MultiPV": 3}}
+        ```
 
     Returns
     -------
@@ -65,6 +76,13 @@ def play_tournament(
             else:
                 board = chess.Board()
 
-            pgn = play_match(white, black, time_control, fen=board.fen())
+            pgn = play_match(
+                white,
+                black,
+                time_control,
+                fen=board.fen(),
+                engine1_options=player_options.get(white, dict()),
+                engine2_options=player_options.get(black, dict()),
+            )
             pgn.headers["Round"] = round_count
             yield pgn

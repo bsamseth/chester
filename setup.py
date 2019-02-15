@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="chester",
-    version="0.2.1",
+    version="0.3.0",
     author="Bendik Samseth",
     author_email="b.samseth@gmail.com",
     description="Chess Engine Tester - A simple interface to play chess engines against each other, including tournaments.",
