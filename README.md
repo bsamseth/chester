@@ -1,4 +1,5 @@
 [![PyPI version](https://badge.fury.io/py/chester.svg)](https://badge.fury.io/py/chester)
+[![Downloads](https://pepy.tech/badge/chester)](https://pepy.tech/project/chester)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/bsamseth/python-chess-engine-tester.svg?branch=master)](https://travis-ci.org/bsamseth/python-chess-engine-tester)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/bsamseth/python-chess-engine-tester.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bsamseth/python-chess-engine-tester/context:python)
